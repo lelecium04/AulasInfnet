@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
             Toast.LENGTH_SHORT
         ).show()
             var intt = Intent(this, DadosActivity::class.java)
+            intt.putExtra("nomeUsuario", editTextNome.text.toString())
+            intt.putExtra("emailUsuario", editTextEmail.text.toString())
+            intt.putExtra("telefoneUsuario", editTextTelefone.text.toString())
             startActivity(intt)
 
         }
