@@ -1,9 +1,11 @@
-package com.example.intents
+package com.example.intents.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.intents.Model.Usuario
+import com.example.intents.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,9 +23,14 @@ class MainActivity : AppCompatActivity() {
             Toast.LENGTH_SHORT
         ).show()
             var intt = Intent(this, DadosActivity::class.java)
-            intt.putExtra("nomeUsuario", editTextNome.text.toString())
-            intt.putExtra("emailUsuario", editTextEmail.text.toString())
-            intt.putExtra("telefoneUsuario", editTextTelefone.text.toString())
+
+            var usuario = Usuario(
+                editTextNome.text.toString(),
+                editTextEmail.text.toString(),
+                editTextTelefone.text.toString()
+            )
+
+            intt.putExtra("usuario", usuario)
             startActivity(intt)
 
         }
