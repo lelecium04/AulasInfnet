@@ -102,4 +102,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="24dp" />
+
+    <ImageView
+        android:id="@+id/imageViewTw"
+        android:layout_width="151dp"
+        android:layout_height="151dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNome"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/twitter" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

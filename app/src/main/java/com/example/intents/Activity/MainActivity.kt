@@ -1,5 +1,6 @@
 package com.example.intents.Activity
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,12 +31,30 @@ class MainActivity : AppCompatActivity() {
                 editTextTelefone.text.toString()
             )
 
-            intt.putExtra("usuario", usuario)
-            startActivity(intt)
+            startActivityForResult(intt, 10)
 
+        }
+
+        imageViewTw.setOnClickListener{
+            var intt = Intent(this, ListaImagens::class.java)
+
+            startActivityForResult(intt, 5)
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
-
+        if(resultCode == Activity.RESULT_OK){
+            when(requestCode){
+                10 ->{
+                    var retorno = data!!.getStringExtra("resultado")
+                }
+                5 ->{
+                    var fotoPerfil = data!!.getIntExtra("imagem", R.drawable.twitter)
+                    imageViewTw.setImageResource(fotoPerfil)
+                }
+            }
+        }
+    }
 }
